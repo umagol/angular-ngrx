@@ -1,6 +1,6 @@
 // Import Actions
 import { Action } from '@ngrx/store';
-import { Post } from '../../models/post.model';
+import { Post } from '../models/post.model';
 
 export enum PostActionTypes {
 
@@ -18,61 +18,74 @@ export enum PostActionTypes {
 
 }
 
+
+/*
+** Get Posts
+**/
 export class GetPostsAction implements Action {
     readonly type = PostActionTypes.GET_POSTS;
 }
 
 export class GetPostsSuccessAction implements Action {
     readonly type = PostActionTypes.GET_POSTS_SUCCESS;
-
-    constructor(public payload: Post[]) { }
+    constructor(public payload: Post[]){}
 }
 
-export class GetPostsFailureAction implements Action {
+export class GetPostsFailAction implements Action {
     readonly type = PostActionTypes.GET_POSTS_FAILURE;
-
-    constructor(public payload: any) { }
+    constructor(public payload: any) {}
 }
 
+/*
+** End - Get Posts
+**/
+
+
+/*
+** Add Post
+**/
 export class AddPostAction implements Action {
     readonly type = PostActionTypes.ADD_POST;
-
-    constructor(public payload: Post) { }
+    constructor(public payload: Post){}
 }
 
 export class AddPostSuccessAction implements Action {
     readonly type = PostActionTypes.ADD_POST_SUCCESS;
-
-    constructor(public payload: Post) { }
+    constructor(public payload: Post){}
 }
 
-export class AddPostFailureAction implements Action {
+export class AddPostFailAction implements Action {
     readonly type = PostActionTypes.ADD_POST_FAILURE;
-
-    constructor(public payload: Post){ }
+    constructor(public payload: any){}
 }
 
-// export Delete Post Actions
+/*
+** End - Add Post
+**/
 
 
+/*
+** Delete Post
+**/
 export class DeletePostAction implements Action {
     readonly type = PostActionTypes.DELETE_POST;
-
-    constructor(public payload: Post) { }
+    constructor(public payload: number){}
 }
 
 export class DeletePostSuccessAction implements Action {
     readonly type = PostActionTypes.DELETE_POST_SUCCESS;
-
-    constructor(public payload: Post) { }
+    constructor(public payload: string | any){}
 }
 
-export class DeletePostFailureAction implements Action {
+export class DeletePostFailAction implements Action {
     readonly type = PostActionTypes.DELETE_POST_FAILURE;
-
-    constructor(public payload: Post){ }
+    constructor(public payload: any){}
 }
 
-export type PostActions =  GetPostsAction | GetPostsSuccessAction | GetPostsFailureAction |
-    AddPostAction | AddPostSuccessAction | AddPostFailureAction |
-    DeletePostAction | DeletePostSuccessAction | DeletePostFailureAction;
+/*
+** End - Delete Post
+**/
+
+export type PostActions =  GetPostsAction | GetPostsSuccessAction | GetPostsFailAction |
+    AddPostAction | AddPostSuccessAction | AddPostFailAction |
+    DeletePostAction | DeletePostSuccessAction | DeletePostFailAction;
